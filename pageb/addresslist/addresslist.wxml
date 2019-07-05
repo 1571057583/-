@@ -1,0 +1,28 @@
+<view class="group">
+<view class="group-header">我的地址</view>
+<view wx:for="{{address}}" style='position: relative;'>
+  <!-- 列表层 -->
+  <view class='list' style='{{item.txtStyle}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index='{{index}}'>
+    <!-- 收货信息 -->
+    <view class='info' bindtap='select_addr' data-id="{{item.addressId}}">
+      <view>
+        {{item.addressRecipients}} 
+        <span class="phone">{{item.addressPhone}}</span>
+        <span wx:if="{{item.addressDefault == '是'}}" class='def'>默认</span>
+      </view>
+      <view>
+        {{item.addressCountry}} {{item.addressProvince}} {{item.addressCity}} {{item.addressDistrict}} {{item.addressDetail}}
+      </view>
+    </view>
+    <!-- 编辑图标 -->
+    <view class='edit' bindtap='edit' data-id='{{item.addressId}}' >
+      <image src='/images/edit.jpg'></image>
+    </view>
+  </view>
+  <!-- 删除按钮 -->
+  <view class="delete" data-id="{{item.addressId}}" data-index='{{index}}' bindtap="delItem" >删除</view>
+</view>
+ </view>
+ <view class="btn-submit">
+		<button class="btn-block btn-orange" bindtap="add">添加地址</button>
+</view>

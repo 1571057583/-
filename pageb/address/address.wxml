@@ -1,0 +1,77 @@
+<view>
+ <form bindsubmit='applySubmit'>
+	<view class="group">
+		<view class="group-header">地址信息</view>
+   
+		<view class="group-body">
+			<view class="input-list">
+				<view class="input-item">
+					<text class="input-item-label">收件人</text>
+					<view class="input-item-content">
+						<input type="text" placeholder="请输入收件人" name="recipients" value='{{recipients}}'></input>
+					</view>
+				</view>
+        <view class="input-item">
+					<text class="input-item-label">电话</text>
+					<view class="input-item-content">
+						<input type="text" placeholder="请输入电话" name="phone" value='{{phone}}'></input>
+					</view>
+				</view>
+        <view class="input-item">
+					<text class="input-item-label">地址标签</text>
+					<picker class="input-item-content" bindchange="bindPickerChange" data-pickername="label" value="{{labelindex}}" range="{{labelarr}}" mode="selector" name="addresslable">{{labelarr[labelindex]}}
+					</picker>
+				</view>
+				<view class="input-item">
+					<text class="input-item-label">国家</text>
+					<picker class="input-item-content"  bindchange="bindPickerChange" data-pickername="country" value="{{countryindex}}" range-key="{{'dictionaryitemName'}}" range="{{countryarr}}" mode="selector" name="country">{{countryarr[countryindex].dictionaryitemName}}
+					</picker>
+				</view>
+				<view class="input-item">
+
+					<text class="input-item-label">省份</text>
+					<picker class="input-item-content" bindchange="bindPickerChange" data-pickername="province" value="{{provinceindex}}" range-key="{{'dictionaryitemName'}}" range="{{provincearr}}" mode="selector" name="province">{{provincearr[provinceindex].dictionaryitemName}}
+					</picker>
+				</view>
+				<view class="input-item">
+					<text class="input-item-label">城市</text>
+					<picker class="input-item-content" bindchange="bindPickerChange" data-pickername="city" value="{{cityindex}}" range-key="{{'dictionaryitemName'}}" range="{{cityarr}}" mode="selector" name="city">{{cityarr[cityindex].dictionaryitemName}}
+					</picker>
+				</view>
+        <view class="input-item">
+					<text class="input-item-label">区域</text>
+					<picker class="input-item-content" bindchange="bindPickerChange" data-pickername="district" value="{{districtindex}}" range-key="{{'dictionaryitemName'}}" range="{{districtarr}}" mode="selector" name="district">{{districtarr[districtindex].dictionaryitemName}}
+					</picker>
+				</view>
+        <view class="input-item input-item-full">
+					<text class="input-item-label">详细地址</text>
+					<textarea placeholder="可输入50字" maxlength="50" name="detail" value='{{addressdetail}}'></textarea>
+				</view>
+        
+			</view>
+		</view>
+
+		<view class="group-body">
+			<view class="input-list">
+				<view class="input-item">
+					<text class="input-item-label">默认地址</text>
+					<view class="input-item-content">
+						<radio-group bindchange="setFinance" name="isdefault">
+							<label class="{{!hasaddress?'checked':''}}" >
+								<radio value="是" checked="{{!hasaddress}}"  />是
+							</label>
+							<label class="{{hasaddress?'checked':''}}">
+								<radio value="否" checked="{{hasaddress}}" />否
+							</label>
+    
+						</radio-group>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="btn-submit">
+		<button class="btn-block btn-orange" form-type='submit'>提交</button>
+	</view>
+  </form>
+</view>
