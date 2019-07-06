@@ -35,7 +35,6 @@ Page({
         url: app.globalData.requesturl + 'login/loginInsert',
         data: {
           userInfo: e.detail.userInfo
-         
         },
         
         method: 'GET',
