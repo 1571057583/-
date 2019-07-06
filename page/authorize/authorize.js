@@ -34,7 +34,7 @@ Page({
       wx.request({
         url: app.globalData.requesturl + 'login/loginInsert',
         data: {
-          userInfo: e.detail.userInfo
+          userInfo: e.detail.userInfo,
         },
         
         method: 'GET',
