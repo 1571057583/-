@@ -30,20 +30,22 @@ Page({
       //用户按了允许授权按钮
       var that = this;
       //插入登录的用户的相关信息到数据库
-
-    /*  wx.request({
-        url: app.globalData.requesturl + 'user/insertUserInfo',
+      console.log(e.detail.userInfo)
+      wx.request({
+        url: app.globalData.requesturl + 'login/loginInsert',
         data: {
           userInfo: e.detail.userInfo
+         
         },
+        
         method: 'GET',
         header: {
           'content-type': 'application/json'
         },
         success: function (res) {
         }
-      });*/
-      /* wx.request({
+      });
+       wx.request({
          url: app.globalData.urlPath + 'user/add',
          data: {
            openid: getApp().globalData.openid,
@@ -60,7 +62,7 @@ Page({
            that.queryUsreInfo();
            console.log("插入小程序登录用户信息成功！");
          }
-       });*/
+       });
       //授权成功后，跳转进入小程序首页
       wx.switchTab({
         url: '/pages/index/index'
