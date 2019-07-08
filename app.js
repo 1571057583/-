@@ -22,6 +22,12 @@ App({
 				}
 			})
 		}
+    wx.request({
+      url: this.globalData.requesturl +'businesses/findAll',
+      success:function(res){
+        console.log(res.data.data+"商家数据");
+      }
+    })
 	},
 	onShow: function () {
 		console.log('App Show')
@@ -29,6 +35,7 @@ App({
 	onHide: function () {
 		console.log('App Hide')
 	},
+
 	globalData: {
 		hasLogin: false,
     requesturl: "http://localhost:8082/",
@@ -37,7 +44,7 @@ App({
 		shops: [
 			{
 				id: 1,
-        img: '../../imgs/index/dinner.jpg',
+        img: '../../imgs/index/business6.jpg',
 				distance: 1.8,
 				sales: 1475,
         logo: '../../imgs/index/duck.jpg',
