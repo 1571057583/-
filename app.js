@@ -33,7 +33,7 @@ App({
 	globalData: {
 		hasLogin: false,
     requesturl: "http://localhost:8082/",
-    openid: "11461227",
+    openid: null,
     userInfo: null,
 		shops:null, 
      
@@ -88,6 +88,25 @@ App({
 					wx.setStorageSync('rd_session', self.rd_session);
 					self.getUserInfo();
 				});
+        var code = res.code; //返回code
+        var appId = 'wx9cce8602ba0d3f30';
+        var secret = '79f365c294550deff2de0448c8449d82';
+          wx.request({
+            url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appId + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
+            data: {},
+            header: {
+              'content-type': 'json'
+            },
+            success: res => {
+
+              var openid = res.data.openid //返回openid
+
+              console.log('openid为' + openid);
+
+              self.globalData.openid = openid
+            }
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          });
 			}
 		});
 	},

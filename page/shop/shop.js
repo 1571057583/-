@@ -124,7 +124,9 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        that.setData({})
+        that.setData({
+          goods: res.data.data
+        })
       }
     });
 
