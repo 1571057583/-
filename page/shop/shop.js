@@ -2,71 +2,72 @@ var app = getApp();
 var server = require('../../utils/server');
 Page({
 	data: {
-		goods: {
-			1: {
-				id: 1,
-				name: '娃娃菜',
-				pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/1.jpg',
-				sold: 1014,
-				price: 2
-			},
-			2: {
-				id: 2,
-				name: '金针菇',
-				pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/2.jpg',
-				sold: 1029,
-				price: 3
-			},
-			3: {
-				id: 3,
-				name: '方便面',
-				pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/2.jpg',
-				sold: 1030,
-				price: 2
-			},
-			4: {
-				id: 4,
-				name: '粉丝',
-				pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/2.jpg',
-				sold: 1059,
-				price: 1
-			},
-			5: {
-				id: 5,
-				name: '生菜',
-				pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/2.jpg',
-				sold: 1029,
-				price: 2
-			},
-			6: {
-				id: 6,
-				name: '白菜',
-				pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/1.jpg',
-				sold: 1064,
-				price: 2
-			},
-			7: {
-				id: 7,
-				name: '杏鲍菇',
-				pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/2.jpg',
-				sold: 814,
-				price: 3
-			},
-			8: {
-				id: 8,
-				name: '香菇',
-				pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/1.jpg',
-				sold: 124,
-				price: 3
-			},
-			9: {
-				id: 9,
-				name: '猴头菇',
-				pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/1.jpg',
-				sold: 102,
-				price: 5
-			}
-		},
+       goods: null,
+		// goods: {
+		// 	1: {
+		// 		id: 1,
+		// 		name: '娃娃菜',
+		// 		pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/1.jpg',
+		// 		sold: 1014,
+		// 		price: 2
+		// 	},
+		// 	2: {
+		// 		id: 2,
+		// 		name: '金针菇',
+		// 		pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/2.jpg',
+		// 		sold: 1029,
+		// 		price: 3
+		// 	},
+		// 	3: {
+		// 		id: 3,
+		// 		name: '方便面',
+		// 		pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/2.jpg',
+		// 		sold: 1030,
+		// 		price: 2
+		// 	},
+		// 	4: {
+		// 		id: 4,
+		// 		name: '粉丝',
+		// 		pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/2.jpg',
+		// 		sold: 1059,
+		// 		price: 1
+		// 	},
+		// 	5: {
+		// 		id: 5,
+		// 		name: '生菜',
+		// 		pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/2.jpg',
+		// 		sold: 1029,
+		// 		price: 2
+		// 	},
+		// 	6: {
+		// 		id: 6,
+		// 		name: '白菜',
+		// 		pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/1.jpg',
+		// 		sold: 1064,
+		// 		price: 2
+		// 	},
+		// 	7: {
+		// 		id: 7,
+		// 		name: '杏鲍菇',
+		// 		pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/2.jpg',
+		// 		sold: 814,
+		// 		price: 3
+		// 	},
+		// 	8: {
+		// 		id: 8,
+		// 		name: '香菇',
+		// 		pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/1.jpg',
+		// 		sold: 124,
+		// 		price: 3
+		// 	},
+		// 	9: {
+		// 		id: 9,
+		// 		name: '猴头菇',
+		// 		pic: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/goods/1.jpg',
+		// 		sold: 102,
+		// 		price: 5
+		// 	}
+		// },
 		goodsList: [
 			{
 				id: 'hot',
@@ -111,6 +112,22 @@ Page({
 				break;
 			}
 		}
+    var that = this;
+    wx.request({
+      url: app.globalData.requesturl + 'goods/goodsInfo',
+      data: {
+        shopId: that.shopId,
+      },
+
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        that.setData({})
+      }
+    });
+
 	},
 	onShow: function () {
 		this.setData({

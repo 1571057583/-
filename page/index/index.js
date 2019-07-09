@@ -52,9 +52,10 @@ Page({
 				}
 			]
 		],
-		shops: app.globalData.shops
+		shops: null //app.globalData.shops
 	},
 	onLoad: function () {
+    console.log(this.data.shops+"index的shops数据")
 		var self = this;
 		wx.getLocation({
 			type: 'gcj02',
@@ -78,6 +79,18 @@ Page({
 				});
 			}
 		})
+    var that = this;
+    wx.request({
+      url: app.globalData.requesturl + 'businesses/findAll',
+      success: function (res) {
+        console.log(res.data.data + "商家数据");
+        that.setData({
+          shops: res.data.data
+        })
+        app.globalData.shops = res.data.data;
+        console.log(app.globalData.shops + "shops信息")
+      }
+    })
 	},
 	onShow: function () {
 	},

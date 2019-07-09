@@ -177,3 +177,7 @@ scroll-view {
 	line-height: 2;
 	margin-bottom: 20rpx;
 }
+
+.text{
+  text-align: center;
+}

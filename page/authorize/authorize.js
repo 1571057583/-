@@ -44,24 +44,25 @@ Page({
         success: function (res) {
         }
       });
-       wx.request({
-         url: app.globalData.urlPath + 'user/add',
-         data: {
-           openid: getApp().globalData.openid,
-           nickName: e.detail.userInfo.nickName,
-           avatarUrl: e.detail.userInfo.avatarUrl,
-           province: e.detail.userInfo.province,
-           city: e.detail.userInfo.city
-         },
-         header: {
-           'content-type': 'application/json'
-         },
-         success: function (res) {
-           //从数据库获取用户信息
-           that.queryUsreInfo();
-           console.log("插入小程序登录用户信息成功！");
-         }
-       });
+
+      //  wx.request({
+      //    url: app.globalData.urlPath + 'user/add',
+      //    data: {
+      //      openid: getApp().globalData.openid,
+      //      nickName: e.detail.userInfo.nickName,
+      //      avatarUrl: e.detail.userInfo.avatarUrl,
+      //      province: e.detail.userInfo.province,
+      //      city: e.detail.userInfo.city
+      //    },
+      //    header: {
+      //      'content-type': 'application/json'
+      //    },
+      //    success: function (res) {
+      //      //从数据库获取用户信息
+      //      that.queryUsreInfo();
+      //      console.log("插入小程序登录用户信息成功！");
+      //    }
+      //  });
       //授权成功后，跳转进入小程序首页
       wx.switchTab({
         url: '/pages/index/index'
@@ -84,7 +85,7 @@ Page({
   //获取用户信息接口
   queryUsreInfo: function () {
     wx.request({
-      url: app.globalData.requesturl + 'user/getUserInfo',
+      url: app.globalData.requesturl + 'login/getUserInfo',
       data: {
         openid: app.globalData.openid
       },

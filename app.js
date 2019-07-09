@@ -22,12 +22,6 @@ App({
 				}
 			})
 		}
-    wx.request({
-      url: this.globalData.requesturl +'businesses/findAll',
-      success:function(res){
-        console.log(res.data.data+"商家数据");
-      }
-    })
 	},
 	onShow: function () {
 		console.log('App Show')
@@ -39,46 +33,47 @@ App({
 	globalData: {
 		hasLogin: false,
     requesturl: "http://localhost:8082/",
-    openid: "",
+    openid: "11461227",
     userInfo: null,
-		shops: [
-			{
-				id: 1,
-        img: '../../imgs/index/business6.jpg',
-				distance: 1.8,
-				sales: 1475,
-        logo: '../../imgs/index/duck.jpg',
-				name: '杨国福麻辣烫(东四店)',
-				desc: '满25减8；满35减10；满60减15（在线支付专享）'
-			},
-			{
-				id: 2,
-        img: '../../imgs/index/dinner.jpg',
-				distance: 2.4,
-				sales: 1284,
-        logo: '../../imgs/index/dinner.jpg',
-				name: '忠友麻辣烫(东四店)',
-				desc: '满25减8；满35减10；满60减15（在线支付专享）'
-			},
-			{
-				id: 3,
-        img: '../../imgs/index/dinner.jpg',
-				distance: 2.3,
-				sales: 2039,
-        logo: '../../imgs/index/dinner.jpg',
-				name: '粥面故事(东大桥店)',
-				desc: '满25减8；满35减10；满60减15（在线支付专享）'
-			},
-			{
-				id: 4,
-        img: '../../imgs/index/dinner.jpg',
-				distance: 3.4,
-				sales: 400,
-        logo: '../../imgs/index/dinner.jpg',
-				name: '兄鸡',
-				desc: '满25减8；满35减10；满60减15（在线支付专享）'
-			}
-		]
+		shops:null, 
+     
+		// [	{
+		// 		id: 1,
+    //     img: '../../imgs/index/business6.jpg',
+		// 		distance: 1.8,
+		// 		sales: 1475,
+    //     logo: '../../imgs/index/duck.jpg',
+		// 		name: '杨国福麻辣烫(东四店)',
+		// 		desc: '满25减8；满35减10；满60减15（在线支付专享）'
+		// 	},
+		// 	{
+		// 		id: 2,
+    //     img: '../../imgs/index/dinner.jpg',
+		// 		distance: 2.4,
+		// 		sales: 1284,
+    //     logo: '../../imgs/index/dinner.jpg',
+		// 		name: '忠友麻辣烫(东四店)',
+		// 		desc: '满25减8；满35减10；满60减15（在线支付专享）'
+		// 	},
+		// 	{
+		// 		id: 3,
+    //     img: '../../imgs/index/dinner.jpg',
+		// 		distance: 2.3,
+		// 		sales: 2039,
+    //     logo: '../../imgs/index/dinner.jpg',
+		// 		name: '粥面故事(东大桥店)',
+		// 		desc: '满25减8；满35减10；满60减15（在线支付专享）'
+		// 	},
+		// 	{
+		// 		id: 4,
+    //     img: '../../imgs/index/dinner.jpg',
+		// 		distance: 3.4,
+		// 		sales: 400,
+    //     logo: '../../imgs/index/dinner.jpg',
+		// 		name: '兄鸡',
+		// 		desc: '满25减8；满35减10；满60减15（在线支付专享）'
+		// 	}
+		// ]
 	},
 	rd_session: null,
 	login: function() {

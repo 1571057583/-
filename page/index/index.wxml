@@ -54,11 +54,19 @@
 				<view class="filter {{filterId==3?'active':''}}" data-id="3" bindtap="tapFilter">距离最近<text class="v">↓</text>
 				</view>
 			</view>
-			<view class="shop" wx:for="{{shops}}" wx:key="id">
+			<!-- <view class="shop" wx:for="{{shops}}" wx:key="id">
 				<navigator url="/page/shop/shop?id={{item.id}}">
 					<image src="{{item.img}}"/>
 				</navigator>
-			</view>
+			</view> -->
+      <block  wx:for="{{shops}}" wx:key="id">
+　　     <view><text class="text">{{item.name}}</text></view>
+          <navigator url="/page/shop/shop?id={{item.id}}">
+          	<image src="{{item.img}}"/>
+            <view>----------------------------------------------</view>
+            	</navigator>
+　　  </block>
+
 		</view>
 		<view class="loading">努力加载中…</view>
 	</scroll-view>
