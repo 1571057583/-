@@ -19,7 +19,7 @@
 				<view class="goods" wx:for="{{classify.goods}}" wx:for-item="id" wx:key="*this">
 					<image class="pic" src="{{goods[id].pic}}"></image>
 					<view class="name ellipsis">{{goods[id].name}}</view>
-					<view class="sold">月售{{goods[id].sold}}</view>
+					<view class="sold">月售{{goods[id].limitNum}}</view>
 					<view class="price">￥{{goods[id].price}}</view>
 					<view class="addCart" bindtap="tapAddCart" data-id="{{id}}">
 						<image src="/imgs/shop/plus.png"></image>

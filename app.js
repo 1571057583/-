@@ -36,44 +36,6 @@ App({
     openid: null,
     userInfo: null,
 		shops:null, 
-     
-		// [	{
-		// 		id: 1,
-    //     img: '../../imgs/index/business6.jpg',
-		// 		distance: 1.8,
-		// 		sales: 1475,
-    //     logo: '../../imgs/index/duck.jpg',
-		// 		name: '杨国福麻辣烫(东四店)',
-		// 		desc: '满25减8；满35减10；满60减15（在线支付专享）'
-		// 	},
-		// 	{
-		// 		id: 2,
-    //     img: '../../imgs/index/dinner.jpg',
-		// 		distance: 2.4,
-		// 		sales: 1284,
-    //     logo: '../../imgs/index/dinner.jpg',
-		// 		name: '忠友麻辣烫(东四店)',
-		// 		desc: '满25减8；满35减10；满60减15（在线支付专享）'
-		// 	},
-		// 	{
-		// 		id: 3,
-    //     img: '../../imgs/index/dinner.jpg',
-		// 		distance: 2.3,
-		// 		sales: 2039,
-    //     logo: '../../imgs/index/dinner.jpg',
-		// 		name: '粥面故事(东大桥店)',
-		// 		desc: '满25减8；满35减10；满60减15（在线支付专享）'
-		// 	},
-		// 	{
-		// 		id: 4,
-    //     img: '../../imgs/index/dinner.jpg',
-		// 		distance: 3.4,
-		// 		sales: 400,
-    //     logo: '../../imgs/index/dinner.jpg',
-		// 		name: '兄鸡',
-		// 		desc: '满25减8；满35减10；满60减15（在线支付专享）'
-		// 	}
-		// ]
 	},
 	rd_session: null,
 	login: function() {
@@ -103,7 +65,14 @@ App({
 
               console.log('openid为' + openid);
 
-              self.globalData.openid = openid
+              if (openid == self.globalData.openid){
+                  wx.redirectTo({
+                    url: '/page/index/index',
+                  })
+              }else{
+                self.globalData.openid = openid
+              }
+
             }
             // 发送 res.code 到后台换取 openId, sessionKey, unionId
           });
