@@ -26,6 +26,7 @@ Page({
     })
   },
   bindGetUserInfo: function (e) {
+    app.globalData.userInfo= e.detail.userInfo
     if (e.detail.userInfo) {
       //用户按了允许授权按钮
       var that = this;

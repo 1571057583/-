@@ -71,12 +71,12 @@ Page({
     wx.request({
       url: app.globalData.requesturl + 'application/insertInfo',
       data: {
-        name:e.detail.value.name,
-        phone:e.detail.value.phone,
-        businessesName: e.detail.value.businessesName,
-        businessesAddress: e.detail.value.businessesAddress,
-        businessesCode: e.detail.value.businessesCode,
-        openid:app.globalData.openid,
+        name:event.detail.value.name,
+        phone: event.detail.value.phone,
+        businessesName: event.detail.value.businessesName,
+        businessesAddress: event.detail.value.businessesAddress,
+        businessesCode: event.detail.value.businessesCode,
+        openid: app.globalData.openid, 
         userInfo: app.globalData.userInfo
       },
       method: 'GET',
