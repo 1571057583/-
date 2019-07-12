@@ -45,25 +45,6 @@ Page({
         success: function (res) {
         }
       });
-
-      //  wx.request({
-      //    url: app.globalData.urlPath + 'user/add',
-      //    data: {
-      //      openid: getApp().globalData.openid,
-      //      nickName: e.detail.userInfo.nickName,
-      //      avatarUrl: e.detail.userInfo.avatarUrl,
-      //      province: e.detail.userInfo.province,
-      //      city: e.detail.userInfo.city
-      //    },
-      //    header: {
-      //      'content-type': 'application/json'
-      //    },
-      //    success: function (res) {
-      //      //从数据库获取用户信息
-      //      that.queryUsreInfo();
-      //      console.log("插入小程序登录用户信息成功！");
-      //    }
-      //  });
       //授权成功后，跳转进入小程序首页
       wx.switchTab({
         url: '/page/index/index'
@@ -94,7 +75,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.map);
+        console.log(res.map+"1111111111111111111111");
         getApp().globalData.userInfo = res.map;
       }
     });

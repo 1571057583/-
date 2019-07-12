@@ -65,13 +65,13 @@ App({
 
               console.log('openid为' + openid);
 
-              if (openid == self.globalData.openid){
-                  wx.redirectTo({
-                    url: '/page/index/index',
-                  })
-              }else{
+              // if (openid == self.globalData.openid){
+              //     wx.redirectTo({
+              //       url: '/page/index/index',
+              //     })
+              //}else{
                 self.globalData.openid = openid
-              }
+              //}
 
             }
             // 发送 res.code 到后台换取 openId, sessionKey, unionId

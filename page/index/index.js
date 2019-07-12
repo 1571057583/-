@@ -52,10 +52,10 @@ Page({
 				}
 			]
 		],
-		shops: null //app.globalData.shops
+		shops: null,
 	},
 	onLoad: function () {
-    console.log(this.data.shops+"index的shops数据")
+    console.log(this.data.shops+"index的商家数据")
 		var self = this;
 		wx.getLocation({
 			type: 'gcj02',
@@ -91,6 +91,7 @@ Page({
         console.log(app.globalData.shops + "shops信息")
       }
     })
+   
 	},
 	onShow: function () {
 	},

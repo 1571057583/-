@@ -3,7 +3,7 @@
 		<image class="avatar" src="{{userInfo.avatarUrl}}" />
 		<view class="nickname">{{userInfo.nickName}}</view>
 	</view>
-	<view class="section" wx:for="{{mode}}">
+	<view class="section" wx:for="{{mode}}" wx:key="id">
     <navigator  url="{{item.pagePath}}">
 		  <view class="line judgement">{{item.text}}</view>
     </navigator>

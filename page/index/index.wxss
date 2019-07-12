@@ -181,3 +181,9 @@ scroll-view {
 .text{
   text-align: center;
 }
+
+.imger{
+  padding-right: 30rpx;
+  background-color: white;
+	border-bottom: 5px solid #efefef;
+}

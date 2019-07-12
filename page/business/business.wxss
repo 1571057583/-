@@ -1,0 +1,17 @@
+.title{
+  padding: 20rpx;
+}
+
+.title .titleText{
+    font-size: 20px;
+    text-align: center;
+}
+.input{
+	padding-right: 30rpx;
+  background-color: white;
+	line-height: 2;
+	border-bottom: 5px solid #efefef;
+}
+.button {
+  background-color: green;
+}

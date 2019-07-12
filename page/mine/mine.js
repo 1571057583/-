@@ -9,6 +9,9 @@ Page({
     },  {
       "pagePath": "../../pagesa/about/about",
       "text": "关于我们"
+    },{
+        "pagePath": "../../page/business/business",
+        "text": "商家入驻"
     }]
   },
 	onLoad: function () {
