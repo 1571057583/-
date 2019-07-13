@@ -1,0 +1,14 @@
+<view>
+      <view class="header">商家申请列表</view>
+      <view wx:for="{{application}}" wx:key="id">
+        <view class="table">
+            <view>商家店名:{{item.businessesName}}</view>
+            <view>商家地址:{{item.businessesAddress}}</view>
+            <view>营业执照代码:{{item.businessesCode}}</view>
+            <view>电话:{{item.phone}}</view>
+            <view>姓名:{{item.name}}</view>
+            <button class="buttom" type="primary" bindtap="pass" >通过</button>   
+            <button class="buttom" type="primary" bindtap="noPassage">不通过</button>         
+        </view>
+      </view>
+</view>

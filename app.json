@@ -4,7 +4,9 @@
     "page/index/index",
     "page/index/search",
     "page/shop/shop",
-    "page/mine/mine"
+    "page/mine/mine",
+    "page/applicationList/applicationList",
+    "page/business/business"
   ],
   "window": {
     "navigationBarBackgroundColor": "#feb70f",

@@ -12,7 +12,10 @@ Page({
     },{
         "pagePath": "../../page/business/business",
         "text": "商家入驻"
-    }]
+    },{
+        "pagePath": "../../page/applicationList/applicationList",
+        "text": "申请列表"
+      }]
   },
 	onLoad: function () {
 	},

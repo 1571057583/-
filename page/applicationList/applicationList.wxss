@@ -1,0 +1,19 @@
+.header{
+  font-size: 20px;
+  text-align: center;
+  padding-top: 20rpx;
+}
+
+.buttom{
+    border-radius: 80rpx;
+    margin: 30rpx 80rpx;
+    font-size: 35rpx;
+}
+
+.table{
+  padding-right: 30rpx;
+  background-color: white;
+	line-height: 2;
+	border-bottom: 5px solid #efefef;
+}
+
