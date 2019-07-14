@@ -31,6 +31,7 @@ App({
 	},
 
 	globalData: {
+    userStates:null,
 		hasLogin: false,
     requesturl: "http://localhost:8082/",
     openid: null,

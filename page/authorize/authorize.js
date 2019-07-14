@@ -1,10 +1,11 @@
-const app = getApp();
+var app = getApp();
 Page({
   data: {
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function () {
+    console.log(app.globalData.userStates);
     var that = this;
     // 查看是否授权
     wx.getSetting({
@@ -26,6 +27,7 @@ Page({
     })
   },
   bindGetUserInfo: function (e) {
+    console.log
     app.globalData.userInfo= e.detail.userInfo
     if (e.detail.userInfo) {
       //用户按了允许授权按钮
@@ -44,6 +46,19 @@ Page({
           'content-type': 'application/json'
         },
         success: function (res) {
+        }
+      });
+      wx.request({
+        url: app.globalData.requesturl + 'login/getUserInfo',
+        data: {
+          openid: app.globalData.openid
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res.data.data.userStates)
+          app.globalData.userStates = res.data.data.userStates
         }
       });
       //授权成功后，跳转进入小程序首页
@@ -67,6 +82,7 @@ Page({
   },
   //获取用户信息接口
   queryUsreInfo: function () {
+    var that = this;
     wx.request({
       url: app.globalData.requesturl + 'login/getUserInfo',
       data: {
@@ -76,8 +92,9 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.map+"1111111111111111111111");
-        getApp().globalData.userInfo = res.map;
+        console.log(res.data.data.userStates)
+        app.globalData.userStates = res.data.data.userStates,
+        app.globalData.userInfo = res.data.data
       }
     });
   },

@@ -6,7 +6,8 @@
     "page/shop/shop",
     "page/mine/mine",
     "page/applicationList/applicationList",
-    "page/business/business"
+    "page/business/business",
+    "pageb/carts/carts"
   ],
   "window": {
     "navigationBarBackgroundColor": "#feb70f",

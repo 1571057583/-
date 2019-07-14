@@ -182,7 +182,7 @@ scroll-view {
   text-align: center;
 }
 
-.imger{
+.image{
   padding-right: 30rpx;
   background-color: white;
 	border-bottom: 5px solid #efefef;

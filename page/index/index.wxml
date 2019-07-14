@@ -15,7 +15,7 @@
 		<swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="500">
 			<block wx:for="{{banners}}" wx:key="id">
 				<swiper-item>
-					<image bindtap="tapBanner" data-id="{{index}}" src="{{item.img}}"/>
+					<image mode="aspectFit" bindtap="tapBanner" data-id="{{index}}" src="{{item.img}}"/>
 				</swiper-item>
 			</block>
 		</swiper>
@@ -55,13 +55,14 @@
 				</view>
 			</view>
       <block  wx:for="{{shops}}" wx:key="id">
+      
       <view class="image">
 　　     <view><text class="text">{{item.name}}</text></view>
           <navigator url="/page/shop/shop?id={{item.id}}">
           	<image src="{{item.img}}"/>
-            <view>----------------------------------------------</view>
             	</navigator>
       </view>
+     
 　　  </block>
 
 		</view>
