@@ -13,7 +13,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this;
+
+    wx.request({
+      url: app.globalData.requesturl + 'application/findByUserId',
+      data: {
+        openid: app.globalData.openid,
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        if(res.data.data!=null){
+          wx.redirectTo({
+            url: '../../page/mine/mine',
+          })
+        }
+       
+      }
+    });
   },
 
   /**

@@ -1,0 +1,8 @@
+<view wx:for="{{cartInfo}}" wx:key="id">
+  <view wx:for="{{item}}">
+  <view wx:for="{{item.businessesId}}"></view>
+            {{item.goodsName}}
+  </view>
+</view>
+
+<view>内容</view>

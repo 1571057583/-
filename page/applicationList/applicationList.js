@@ -77,12 +77,13 @@ Page({
    * 通过
    */
   pass:function(e){
-    console.log("通过" + e.detail.userInfo)
+    var openid = e.currentTarget.dataset.item;
+    console.log(openid);
     var that = this;
     wx.request({
       url: app.globalData.requesturl + 'application/pass',
       data:({
-        openid: e.detail.userId,
+        openid: openid,
       }),
       success: function (res) {
         console.log(res.data.data)
@@ -97,9 +98,13 @@ Page({
    * 不通过
    */
   noPassage:function(){
+    var openid = e.currentTarget.dataset.item;
     var that = this;
     wx.request({
       url: app.globalData.requesturl + 'application/noPassage',
+      data:({
+            openid:openid,
+      }),
       success: function (res) {
         console.log(res.data.data)
        wx.switchTab({

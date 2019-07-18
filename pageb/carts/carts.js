@@ -1,17 +1,34 @@
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    cartInfo:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this;
+    wx.request({
+      url: app.globalData.requesturl+ 'cart/cartInfo',
+      data:{
+        openid:app.globalData.openid,
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success:function(res){
+        console.log(res.data.data)
+        that.setData({
+          cartInfo:res.data.data
+        })
+      }
+    })
   },
 
   /**

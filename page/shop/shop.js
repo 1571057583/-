@@ -3,7 +3,7 @@ var server = require('../../utils/server');
 Page({
 	data: {
     goods: null,
-    
+    businessesId:null,//商店id
 		goodsList: [
 			{
 				id: 'hot',
@@ -40,6 +40,9 @@ Page({
 	},
 	onLoad: function (options) {
 		var shopId = options.id;
+    this.setData({
+      businessesId:shopId,
+    })
 		for (var i = 0; i < app.globalData.shops.length; ++i) {
       console.log("商家id" + app.globalData.shops[i].id)
 			if (app.globalData.shops[i].id == shopId) {
@@ -163,22 +166,43 @@ Page({
 		});
 	},
 	submit: function (e) {
-		server.sendTemplate(e.detail.formId, null, function (res) {
-			if (res.data.errorcode == 0) {
-				wx.showModal({
-					showCancel: false,
-					title: '恭喜',
-					content: '订单发送成功！下订单过程顺利完成，本例不再进行后续订单相关的功能。',
-					success: function(res) {
-						if (res.confirm) {
-							wx.navigateBack();
-						}
-					}
-				})
-			}
-		}, function (res) {
-			console.log(res)
-		});
+    var that = this;
+    console.log(this.data.cart.list)
+    wx.request({
+      url: app.globalData.requesturl + 'cart/addCart',
+      data: {
+        list: this.data.cart.list,
+        businessesId: this.data.businessesId,
+        openid: app.globalData.openid, 
+      },
+
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log("到这")
+        wx.redirectTo({
+          url: '../../pageb/carts/carts',
+        })
+      }
+    });
+		// server.sendTemplate(e.detail.formId, null, function (res) {
+		// 	if (res.data.errorcode == 0) {
+		// 		wx.showModal({
+		// 			showCancel: false,
+		// 			title: '恭喜',
+		// 			content: '订单发送成功！下订单过程顺利完成，本例不再进行后续订单相关的功能。',
+		// 			success: function(res) {
+		// 				if (res.confirm) {
+		// 					wx.navigateBack();
+		// 				}
+		// 			}
+		// 		})
+		// 	}
+		// }, function (res) {
+		// 	console.log(res)
+		// });
 	}
 });
 

@@ -7,8 +7,8 @@
             <view>营业执照代码:{{item.businessesCode}}</view>
             <view>电话:{{item.phone}}</view>
             <view>姓名:{{item.name}}</view>
-            <button class="buttom" type="primary" bindtap="pass" >通过</button>   
-            <button class="buttom" type="primary" bindtap="noPassage">不通过</button>         
+            <button class="buttom" type="primary" bindtap="pass" data-item="{{item.userId}}">通过</button>   
+            <button class="buttom" type="primary" bindtap="noPassage" data-item="{{item.userId}}">不通过</button>   
         </view>
       </view>
 </view>
