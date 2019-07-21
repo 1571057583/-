@@ -22,7 +22,7 @@ Page({
       },
       success: function (res) {
         that.setData({
-          address: res.data,
+          address: res.data.data,
           change: change
         });
         console.log(res.data);

@@ -4,23 +4,23 @@
   <!-- 列表层 -->
   <view class='list' style='{{item.txtStyle}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index='{{index}}'>
     <!-- 收货信息 -->
-    <view class='info' bindtap='select_addr' data-id="{{item.addressId}}">
+    <view class='info' bindtap='select_addr' data-id="{{item.id}}">
       <view>
-        {{item.addressRecipients}} 
-        <span class="phone">{{item.addressPhone}}</span>
-        <span wx:if="{{item.addressDefault == '是'}}" class='def'>默认</span>
+        {{item.contacts}} 
+        <span class="phone">{{item.phone}}</span>
+        <span wx:if="{{item.hasaddress == 0}}" class='def'>默认</span>
       </view>
       <view>
-        {{item.addressCountry}} {{item.addressProvince}} {{item.addressCity}} {{item.addressDistrict}} {{item.addressDetail}}
+        {{item.address}}
       </view>
     </view>
     <!-- 编辑图标 -->
-    <view class='edit' bindtap='edit' data-id='{{item.addressId}}' >
-      <image src='/images/edit.jpg'></image>
+    <view class='edit' bindtap='edit' data-id='{{item.id}}' >
+      <image src='../../imgs/address/edit.png'></image>
     </view>
-  </view>
-  <!-- 删除按钮 -->
+     <!-- 删除按钮 -->
   <view class="delete" data-id="{{item.addressId}}" data-index='{{index}}' bindtap="delItem" >删除</view>
+  </view>
 </view>
  </view>
  <view class="btn-submit">

@@ -1,5 +1,5 @@
 <view wx:for="{{cartInfo}}" wx:key="id">
-        {{item}}
+      <view>{{item}}</view>
 </view>
 
 <view>内容</view>
