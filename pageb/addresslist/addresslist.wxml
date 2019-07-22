@@ -19,7 +19,7 @@
       <image src='../../imgs/address/edit.png'></image>
     </view>
      <!-- 删除按钮 -->
-  <view class="delete" data-id="{{item.addressId}}" data-index='{{index}}' bindtap="delItem" >删除</view>
+  <view class="delete" data-id="{{item.id}}" data-index='{{index}}' bindtap="delItem" >删除</view>
   </view>
 </view>
  </view>
