@@ -1,7 +1,7 @@
 <view wx:for="{{cartInfo}}" wx:key="id">
     {{item.businessesName}}
     <view wx:for="{{item.cartInfo}}">
-      <view>{{item}}</view>
+      <view>{{item.goodsName}}</view>
     </view>
 </view>
 
